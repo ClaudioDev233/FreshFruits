@@ -1,10 +1,15 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 
 import { imgFruit } from '../../constants';
+
+import { CartContext } from '../../contexts/cartContext'
 
 export default function FruitsCards() {
 
 const [fruits, setFruit] = useState([])  
+
+
+const { context } = useContext(CartContext)
 
 useEffect(() => {
    
@@ -23,7 +28,7 @@ useEffect(() => {
   
     {fruits.map( fruit => {
       return <>
-      <div> Olha a fruta
+      <div> <p>{context}</p>
       <p>{fruit.name}</p>
       {imgFruit.filter(fruitImg => fruit.name === fruitImg.nome).length ? 
       <img className="fruit__image" src={imgFruit.filter(fruitImg => fruit.name === fruitImg.nome)[0].imagem} alt={fruit.name}></img>
