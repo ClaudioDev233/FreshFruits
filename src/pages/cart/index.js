@@ -10,6 +10,10 @@ export default function Cart(){
     return <>
     <Menu></Menu>
     <p>{context}</p>
-    <div>{cart.map( fruit => console.log(fruit.name))}</div>
+    <div>{cart.map( fruit => {
+        return <p>(fruit.name)</p>}
+
+    )}
+    </div>
     </>
 }
