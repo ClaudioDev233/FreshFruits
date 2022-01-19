@@ -19,9 +19,19 @@ export function CartProvider({children}){
     const [cart, setCart] = useState([])
     const cartValue = console.log(cart)
 
+
    function handleAddFruit(fruit){
-        setCart([...cart, fruit])
+       const check = checkIfFruitIsOnCart(fruit.name)
+      if(check === undefined){
+          setCart([...cart, fruit])
+      }
    }
+
+  function checkIfFruitIsOnCart(fruit){
+       const fruitFind = cart.find(item => item.name === fruit)
+       console.log(fruitFind)
+       return fruitFind     
+  }
 
    function handleRemoveFruit(id){
        const fruitFiltered = cart.filter( item =>{
@@ -37,10 +47,11 @@ export function CartProvider({children}){
     return <CartContext.Provider
     value={{
         context : cart.length,
-        cartValue: cartValue,
         cart: cart,
         addFruit: handleAddFruit,
-        removeFruit: handleRemoveFruit
+        removeFruit: handleRemoveFruit,
+        checkFruit: checkIfFruitIsOnCart
+        /* cartValue: cartValue, */
     }}
     >
         {children}
