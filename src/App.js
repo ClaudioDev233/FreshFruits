@@ -1,5 +1,8 @@
 import { useState, useEffect} from 'react'
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Cart from './components/pages/cart';
+import Home from './components/pages/home';
 
 
 
@@ -139,7 +142,7 @@ useEffect(() => {
 
   /* const frutaFitrada = imgFruit.filter(fruitImg => fruit.name === fruitImg.nome) */
 
-  return (
+  return ( <>
     <div className="App">
       {fruits.map(fruit => console.log(fruit.name))}
       {fruits.map( fruit => {
@@ -152,10 +155,14 @@ useEffect(() => {
         </>
           
         }
-        
         </>
       })}
     </div>
+    <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="cart" element={<Cart/>}></Route>
+    </Routes>
+    </>
   );
 }
 
