@@ -11,7 +11,7 @@ export default function Cart(){
     <Menu></Menu>
     <p>{context}</p>
     <div>{cart.map( fruit => {
-        return <p>(fruit.name)</p>}
+        return <p>{fruit.name}</p>}
 
     )}
     </div>
