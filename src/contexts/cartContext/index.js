@@ -48,7 +48,8 @@ export function CartProvider({children}){
    function handleRemoveFruit(id){
        const fruitFiltered = cart.filter( item =>{
            if(item.id === id){
-               return false   //remove fruta do carrinho
+               alert("Item Removido")
+               return false  //remove fruta do carrinho
            } else {
             return true  //fruta continua no carrinho
            }
@@ -56,7 +57,9 @@ export function CartProvider({children}){
        setCart(fruitFiltered)
    }
 
-   
+   function handleClearCart(){
+       setCart([])
+   }
 
 
 
@@ -67,6 +70,7 @@ export function CartProvider({children}){
         cart: cart,
         addNewFruit: handleAddNewFruit,
         removeFruit: handleRemoveFruit,
+        clearCart : handleClearCart,
 
         addFruit: handleAddFruit,
         fruitQnt: fruitQnt,

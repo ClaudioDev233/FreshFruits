@@ -6,12 +6,13 @@ import { Counter } from '../../reducer'
 
 export default function Cart(){
 
-    const { cart, context, removeFruit } = useContext(CartContext)
+    const { cart, context,clearCart, removeFruit } = useContext(CartContext)
 
 
     return <>
     <Menu></Menu>
     <p>Quantidade de Itens no carrinho: {context}</p>
+    <button onClick={() =>{clearCart()}}>Limpar Carrinho</button>
     <div>{Children.toArray(cart.map( fruit => {
         return  <> 
         <div>  
