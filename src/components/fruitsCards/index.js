@@ -9,7 +9,7 @@ export default function FruitsCards() {
 const [fruits, setFruit] = useState([])  
 
 
-const { context } = useContext(CartContext)
+const { context, addFruit, removeFruit, cartValue } = useContext(CartContext)
 
 useEffect(() => {
    
@@ -25,7 +25,7 @@ useEffect(() => {
 
 
   return   <>
-  
+    {console.log(cartValue)}
     {fruits.map( fruit => {
       return <>
       <div> <p>{context}</p>
@@ -37,6 +37,8 @@ useEffect(() => {
       </>
         
       }
+      <button onClick={() => {addFruit(fruit)}}>Adicionar ao Carrinho</button>
+      <button onClick={() => {removeFruit(fruit.id)}}>Remover do Carrinho</button>
       </div>
       </>
     })} 

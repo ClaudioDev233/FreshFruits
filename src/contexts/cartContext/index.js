@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 /* 
   COMO CRIAR UM CONTEXTO 
@@ -14,11 +14,32 @@ import { createContext } from "react";
 export const CartContext = createContext([]);
 
 export function CartProvider({children}){
-   const coiso =  'Sou Contexto'
+   
+
+    const [cart, setCart] = useState([])
+    const cartValue = console.log(cart)
+
+   function handleAddFruit(fruit){
+        setCart([...cart, fruit])
+   }
+
+   function handleRemoveFruit(id){
+       const fruitFiltered = cart.filter( item =>{
+           if(item.id === id){
+               return false   //remove fruta do carrinho
+           } else {
+            return true  //fruta continua no carrinho
+           }
+       })
+       setCart(fruitFiltered)
+   }
 
     return <CartContext.Provider
     value={{
-        context : coiso
+        context : cart.length,
+        cartValue: cartValue,
+        addFruit: handleAddFruit,
+        removeFruit: handleRemoveFruit
     }}
     >
         {children}
