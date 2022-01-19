@@ -28,7 +28,7 @@ useEffect(() => {
     {console.log(cartValue)}
     {fruits.map( fruit => {
       return <>
-      <div> <p>{context}</p>
+      <div> <p> Quantidade no carrinho : {context}</p>
       <p>{fruit.name}</p>
       {imgFruit.filter(fruitImg => fruit.name === fruitImg.nome).length ? 
       <img className="fruit__image" src={imgFruit.filter(fruitImg => fruit.name === fruitImg.nome)[0].imagem} alt={fruit.name}></img>
