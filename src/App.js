@@ -146,7 +146,7 @@ useEffect(() => {
         return <>
         <p>{fruit.name}</p>
         {imgFruit.filter(fruitImg => fruit.name === fruitImg.nome).length ? 
-        <img className="fruit__image" src={imgFruit.filter(fruitImg => fruit.name === fruitImg.nome)[0].imagem}></img>
+        <img className="fruit__image" src={imgFruit.filter(fruitImg => fruit.name === fruitImg.nome)[0].imagem} alt={fruit.name}></img>
         : 
         <>
         </>
