@@ -38,6 +38,7 @@ export function CartProvider({children}){
     value={{
         context : cart.length,
         cartValue: cartValue,
+        cart: cart,
         addFruit: handleAddFruit,
         removeFruit: handleRemoveFruit
     }}
