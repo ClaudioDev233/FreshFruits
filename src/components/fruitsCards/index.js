@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext} from 'react';
+import {useState, useEffect, useContext, Children} from 'react';
 
 import { imgFruit } from '../../constants';
 
@@ -9,7 +9,7 @@ export default function FruitsCards() {
 const [fruits, setFruit] = useState([])  
 
 
-const { context, addFruit, removeFruit, cartValue, checkFruit } = useContext(CartContext)
+const { context, addNewFruit, removeFruit, cartValue, checkFruit} = useContext(CartContext)
 
 useEffect(() => {
    
@@ -26,7 +26,7 @@ useEffect(() => {
 
   return   <>
     {console.log(cartValue)}
-    {fruits.map( fruit => {
+    {Children.toArray(fruits.map( fruit => {
       return <>
       <div> <p> Quantidade no carrinho : {context}</p>
       <p>{fruit.name}</p>
@@ -37,12 +37,12 @@ useEffect(() => {
       </>
         
       }
-      <button onClick={() => {addFruit(fruit)}}>Adicionar ao Carrinho</button>
+      <button onClick={() => {addNewFruit(fruit)}}>Adicionar ao Carrinho</button>
       <button onClick={() => {removeFruit(fruit.id)}}>Remover do Carrinho</button>
       <button onClick={() => {checkFruit(fruit.name)}}>CHECK</button>
       </div>
       </>
-    })} 
+    }))}
   </>
 }
 
