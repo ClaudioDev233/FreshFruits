@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import {useEffect, useState} from 'react'
 export default function FruitDetails(){
     const [fruit, setFruit] = useState([])
+    const [nutri, setNutri] = useState([])
     const params = useParams()
 
     useEffect(() => {
@@ -11,13 +12,21 @@ export default function FruitDetails(){
       
         async function fetchFruit(){
           const response = await (await fetch(`${proxy}${url}/${params.id}`)).json()
-          console.log(response)
+          setNutri(response.nutritions)
           setFruit(response)
+            console.log(response.nutritions)
         }
         fetchFruit()
+        
       },[])
 
     return <>
     <p>{fruit.name}</p>
+    <p>Carbo:{nutri.carbohydrates}</p>
+    <p>Proteina:{nutri.protein}</p>
+    <p>Gordura:{nutri.fat}</p>
+    <p>Calorias:{nutri.calories}</p>
+    <p>Açucr:{nutri.sugar}</p>
+    
     </>  
 }
