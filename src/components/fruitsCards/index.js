@@ -34,7 +34,7 @@ useEffect(() => {
   fetchFruit())
 },[])
 
-  /* condição pra loading */
+  /* condição pra loading usando react-promise-tracker */
   return   <>
    {promiseInProgress === true ? <Loading></Loading> : <></>} 
 
