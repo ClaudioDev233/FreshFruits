@@ -20,8 +20,9 @@ useEffect(() => {
   const url = "https://www.fruityvice.com/api/fruit"
 
   async function fetchFruit(){
-    const response = await (await fetch(`${proxy}${url}/all`)).json()
-    
+    const data = await fetch(`${proxy}${url}/all`)
+    const response = await data.json()
+    console.log(data)
     setFruit(response)
     
   }
@@ -29,7 +30,7 @@ useEffect(() => {
   fetchFruit()
 },[])
 
-  {fruits.map( nutri => console.log(nutri.nutritions.protein))}
+  
   return   <>
    
     {Children.toArray(fruits.map( fruit => {

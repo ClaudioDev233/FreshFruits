@@ -1,12 +1,14 @@
 
 import { Route, Routes } from 'react-router-dom';
-
+import {useState, useEffect} from 'react'
 
 import Cart from './pages/cart';
 import Home from './pages/home';
 import './App.css';
 import { CartProvider } from './contexts/cartContext';
 import Details from './pages/details';
+
+
 
 
 
@@ -19,9 +21,11 @@ function App() {
    -icone do carrinho dinamico (usando context)
    - pagina de detalhes da fruta  */
 
+  
 
-  return ( <>
-
+  return (
+     <>
+    
     <CartProvider>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
@@ -30,6 +34,7 @@ function App() {
         
       </Routes>
     </CartProvider>
+    
     </>
   );
 }

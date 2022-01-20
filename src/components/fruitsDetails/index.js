@@ -28,7 +28,7 @@ export default function FruitDetails(){
       : 
       <>
       </>}
-      
+
     <p>{fruit.name}</p>
     <p>Carbo:{nutri.carbohydrates}</p>
     <p>Proteina:{nutri.protein}</p>
