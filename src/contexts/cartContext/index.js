@@ -17,15 +17,15 @@ export function CartProvider({children}){
    
 
     const [cart, setCart] = useState([])
-    const [fruitQnt, setFruitQnt ] = useState([])
-    const [amount, setAmount] = useState(1)
+    
+   
     /* const cartValue = console.log(cart) */
 
     // adiciona uma nova fruta ao carrinho
    function handleAddNewFruit(fruit){
         const newFruit = {
             ...fruit,
-            amount : amount
+            amount : 1
         }
 
 
@@ -79,8 +79,7 @@ export function CartProvider({children}){
         removeFruit: handleRemoveFruit,
         clearCart : handleClearCart,
 
-        amount : amount,
-        fruitQnt: fruitQnt,
+       
 
         checkFruit: checkIfFruitIsOnCart
         /* cartValue: cartValue, */
