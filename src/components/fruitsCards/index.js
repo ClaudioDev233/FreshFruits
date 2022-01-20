@@ -7,7 +7,10 @@ import { CartContext } from '../../contexts/cartContext'
 import { Link } from 'react-router-dom'
 
 import { trackPromise , usePromiseTracker } from 'react-promise-tracker';
+
 import Loading from '../loading';
+
+import { FruitCard } from "./styles"
 
 export default function FruitsCards() {
 
@@ -16,7 +19,7 @@ export default function FruitsCards() {
 const [fruits, setFruit] = useState([])
 
 
-const { context, addNewFruit, removeFruit, checkFruit} = useContext(CartContext)
+const {addNewFruit} = useContext(CartContext)
 
 useEffect(() => {
    
@@ -40,21 +43,19 @@ useEffect(() => {
 
     {Children.toArray(fruits.map( fruit => {
       return <>
-      <div> <p> Quantidade no carrinho : {context}</p>
-      <p>{fruit.name}</p>
+      <FruitCard>
       {imgFruit.filter(fruitImg => fruit.name === fruitImg.nome).length ? 
-      <img className="fruit__image" src={imgFruit.filter(fruitImg => fruit.name === fruitImg.nome)[0].imagem} alt={fruit.name}></img>
+      <img src={imgFruit.filter(fruitImg => fruit.name === fruitImg.nome)[0].imagem} alt={fruit.name}></img>
       : 
       <>
       </>
       }
+      <p>{fruit.name}</p>
       <p>Calorias: {fruit.nutritions.calories}</p> 
 
       <Link to={`./details/${fruit.id}`}><button> + </button></Link>
       <button onClick={() => {addNewFruit(fruit)}}>Adicionar ao Carrinho</button>
-      <button onClick={() => {removeFruit(fruit.id)}}>Remover do Carrinho</button>
-      <button onClick={() => {checkFruit(fruit.name)}}>CHECK</button>
-      </div>
+      </FruitCard>
       </>
     }))}
   </>

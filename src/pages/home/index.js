@@ -1,12 +1,16 @@
+import Container from "../../components/container";
 import FruitsCards from "../../components/fruitsCards";
+
 import Menu from "../../components/menu";
 
 
 export default function Home(){
     return <>
-    <div>HOME</div>
     <Menu></Menu>
+    <Container>
     <FruitsCards></FruitsCards>
+    </Container>
+    
     </>
 
 }
