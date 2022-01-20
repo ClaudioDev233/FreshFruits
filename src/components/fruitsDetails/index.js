@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom"
 import {useEffect, useState} from 'react'
+import { imgFruit } from "../../constants"
+
 export default function FruitDetails(){
     const [fruit, setFruit] = useState([])
     const [nutri, setNutri] = useState([])
@@ -21,6 +23,12 @@ export default function FruitDetails(){
       },[])
 
     return <>
+    {imgFruit.filter(fruitImg => fruit.name === fruitImg.nome).length ? 
+      <img className="fruit__image" src={imgFruit.filter(fruitImg => fruit.name === fruitImg.nome)[0].imagem} alt={fruit.name}></img>
+      : 
+      <>
+      </>}
+      
     <p>{fruit.name}</p>
     <p>Carbo:{nutri.carbohydrates}</p>
     <p>Proteina:{nutri.protein}</p>

@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom'
 
 export default function FruitsCards() {
 
-const [fruits, setFruit] = useState([])  
+const [fruits, setFruit] = useState([])
+const [nutri, setNutri] = useState([])  
 
 
 const { context, addNewFruit, removeFruit, cartValue, checkFruit} = useContext(CartContext)
@@ -20,14 +21,17 @@ useEffect(() => {
 
   async function fetchFruit(){
     const response = await (await fetch(`${proxy}${url}/all`)).json()
+    
     setFruit(response)
+    
   }
+
   fetchFruit()
 },[])
 
-
+  {fruits.map( nutri => console.log(nutri.nutritions.protein))}
   return   <>
-    {console.log(cartValue)}
+   
     {Children.toArray(fruits.map( fruit => {
       return <>
       <div> <p> Quantidade no carrinho : {context}</p>
@@ -37,11 +41,10 @@ useEffect(() => {
       : 
       <>
       </>
-        
       }
-      <Link 
-            to={`./details/${fruit.id}`}
-            ><button>Detalhes</button></Link>
+      <p>Calorias: {fruit.nutritions.calories}</p> 
+
+      <Link to={`./details/${fruit.id}`}><button> + </button></Link>
       <button onClick={() => {addNewFruit(fruit)}}>Adicionar ao Carrinho</button>
       <button onClick={() => {removeFruit(fruit.id)}}>Remover do Carrinho</button>
       <button onClick={() => {checkFruit(fruit.name)}}>CHECK</button>
