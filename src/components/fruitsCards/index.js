@@ -13,9 +13,6 @@ import Loading from '../loading';
 import { FruitCard, ButtonInfo } from "./styles"
 
 
-import { FaCartPlus } from "react-icons/fa";
-
-
 export default function FruitsCards() {
 
   const { promiseInProgress } = usePromiseTracker()
