@@ -4,6 +4,8 @@ import { imgFruit } from '../../constants';
 
 import { CartContext } from '../../contexts/cartContext'
 
+import { Link } from 'react-router-dom'
+
 export default function FruitsCards() {
 
 const [fruits, setFruit] = useState([])  
@@ -37,6 +39,9 @@ useEffect(() => {
       </>
         
       }
+      <Link 
+            to={`./details/${fruit.id}`}
+            ><button>Detalhes</button></Link>
       <button onClick={() => {addNewFruit(fruit)}}>Adicionar ao Carrinho</button>
       <button onClick={() => {removeFruit(fruit.id)}}>Remover do Carrinho</button>
       <button onClick={() => {checkFruit(fruit.name)}}>CHECK</button>

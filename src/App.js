@@ -6,6 +6,7 @@ import Cart from './pages/cart';
 import Home from './pages/home';
 import './App.css';
 import { CartProvider } from './contexts/cartContext';
+import Details from './pages/details';
 
 
 
@@ -25,6 +26,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="/details/:id" element={<Details/>}></Route>
+        
       </Routes>
     </CartProvider>
     </>

@@ -6,7 +6,7 @@ import { Counter } from '../../reducer'
 
 export default function Cart(){
 
-    const { cart, context,clearCart, removeFruit } = useContext(CartContext)
+    const { cart, context,clearCart, removeFruit, amount, addAmount} = useContext(CartContext)
 
 
     return <>
@@ -17,6 +17,8 @@ export default function Cart(){
         return  <> 
         <div>  
         <p>{fruit.name}</p>
+        <p>{amount}</p>
+       
         {imgFruit.filter(fruitImg => fruit.name === fruitImg.nome).length ? 
         <img className="fruit__image" src={imgFruit.filter(fruitImg => fruit.name === fruitImg.nome)[0].imagem} alt={fruit.name}></img>
          : 
@@ -24,8 +26,9 @@ export default function Cart(){
          </>
         
         }
-        <Counter></Counter>
+        
         <button onClick={() => {removeFruit(fruit.id)}}>Remover do Carrinho</button>
+        <button onClick={() => {addAmount(fruit)}}>Add Qnt Carrinho</button>
         </div>
         </>
     

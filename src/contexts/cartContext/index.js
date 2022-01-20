@@ -17,25 +17,29 @@ export function CartProvider({children}){
    
 
     const [cart, setCart] = useState([])
-    const [fruitQnt, setFruitQnt ] = useState(1)
+    const [fruitQnt, setFruitQnt ] = useState([])
+    const [amount, setAmount] = useState(1)
     /* const cartValue = console.log(cart) */
-
 
     // adiciona uma nova fruta ao carrinho
    function handleAddNewFruit(fruit){
-       const check = checkIfFruitIsOnCart(fruit.name)
+        const newFruit = {
+            ...fruit,
+            amount : amount
+        }
+
+
+       const check = checkIfFruitIsOnCart(newFruit.name)
       if(check === undefined){
-          setCart([...cart, fruit])
+          setCart([...cart, newFruit])
       } else {
-         alert('já tem no carrinho')
-         
+          alert('já tem no carrinho')  
+          
       }
    }
 
 //muda a quantidade dessa fruta no carrinho
-   function handleAddFruit(fruit){
-       setFruitQnt(fruitQnt + 1 )
-   }
+   
 
    //checa se a fruta está no carrinho para não adiciona-la novamente refatorar 
   function checkIfFruitIsOnCart(fruit){
@@ -58,7 +62,10 @@ export function CartProvider({children}){
    }
 
    function handleClearCart(){
-       setCart([])
+    window.confirm("Deseja limpar o carrinho")
+       if(window.confirm){
+           setCart([])
+       }
    }
 
 
@@ -72,7 +79,7 @@ export function CartProvider({children}){
         removeFruit: handleRemoveFruit,
         clearCart : handleClearCart,
 
-        addFruit: handleAddFruit,
+        amount : amount,
         fruitQnt: fruitQnt,
 
         checkFruit: checkIfFruitIsOnCart
