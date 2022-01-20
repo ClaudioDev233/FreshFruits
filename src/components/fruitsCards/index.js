@@ -6,13 +6,17 @@ import { CartContext } from '../../contexts/cartContext'
 
 import { Link } from 'react-router-dom'
 
+import { trackPromise , usePromiseTracker } from 'react-promise-tracker';
+import Loading from '../loading';
+
 export default function FruitsCards() {
 
+  const { promiseInProgress } = usePromiseTracker()
+
 const [fruits, setFruit] = useState([])
-const [nutri, setNutri] = useState([])  
 
 
-const { context, addNewFruit, removeFruit, cartValue, checkFruit} = useContext(CartContext)
+const { context, addNewFruit, removeFruit, checkFruit} = useContext(CartContext)
 
 useEffect(() => {
    
@@ -26,13 +30,14 @@ useEffect(() => {
     setFruit(response)
     
   }
-
-  fetchFruit()
+  trackPromise(
+  fetchFruit())
 },[])
 
-  
+  /* condição pra loading */
   return   <>
-   
+   {promiseInProgress === true ? <Loading></Loading> : <></>} 
+
     {Children.toArray(fruits.map( fruit => {
       return <>
       <div> <p> Quantidade no carrinho : {context}</p>

@@ -20,7 +20,7 @@ export default function FruitDetails(){
         }
         fetchFruit()
         
-      },[])
+      },[params.id])
 
     return <>
     {imgFruit.filter(fruitImg => fruit.name === fruitImg.nome).length ? 
