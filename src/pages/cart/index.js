@@ -2,6 +2,7 @@ import { Children, useContext } from 'react'
 import Menu from '../../components/menu'
 import {CartContext} from '../../contexts/cartContext'
 import { imgFruit } from '../../constants/index'
+import Container from "../../components/container";
 
 
 export default function Cart(){
@@ -11,6 +12,7 @@ export default function Cart(){
 
     return <>
     <Menu></Menu>
+    <Container>
     <p>Quantidade de Itens no carrinho: {context}</p>
     <button onClick={() =>{clearCart()}}>Limpar Carrinho</button>
     <div>{Children.toArray(cart.map( fruit => {
@@ -36,5 +38,6 @@ export default function Cart(){
 
     ))}
     </div>
+    </Container>
     </>
 }

@@ -10,7 +10,11 @@ import { trackPromise , usePromiseTracker } from 'react-promise-tracker';
 
 import Loading from '../loading';
 
-import { FruitCard } from "./styles"
+import { FruitCard, ButtonInfo } from "./styles"
+
+
+import { FaCartPlus } from "react-icons/fa";
+
 
 export default function FruitsCards() {
 
@@ -50,11 +54,11 @@ useEffect(() => {
       <>
       </>
       }
-      <p>{fruit.name}</p>
-      <p>Calorias: {fruit.nutritions.calories}</p> 
+      <h2>{fruit.name}</h2>
+      <h3>{fruit.nutritions.calories} Cal</h3> 
 
-      <Link to={`./details/${fruit.id}`}><button> + </button></Link>
-      <button onClick={() => {addNewFruit(fruit)}}>Adicionar ao Carrinho</button>
+      <Link to={`./details/${fruit.id}`}><ButtonInfo>?</ButtonInfo></Link>
+      <button onClick={() => {addNewFruit(fruit)}}>Add to Cart</button>
       </FruitCard>
       </>
     }))}
