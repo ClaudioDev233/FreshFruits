@@ -13,6 +13,7 @@ export const FruitCard = styled.div`
  img{
     
    height: 100px;
+   border-radius: 10px;
    
  }
 `
