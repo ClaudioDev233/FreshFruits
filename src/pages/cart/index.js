@@ -2,7 +2,7 @@ import { Children, useContext } from 'react'
 import Menu from '../../components/menu'
 import {CartContext} from '../../contexts/cartContext'
 import { imgFruit } from '../../constants/index'
-import { Counter } from '../../reducer'
+
 
 export default function Cart(){
 
