@@ -3,6 +3,7 @@ import Menu from '../../components/menu'
 import {CartContext} from '../../contexts/cartContext'
 import { imgFruit } from '../../constants/index'
 import Container from "../../components/container";
+import Footer from '../../components/footer';
 
 
 export default function Cart(){
@@ -39,5 +40,6 @@ export default function Cart(){
     ))}
     </div>
     </Container>
+    <Footer></Footer>
     </>
 }

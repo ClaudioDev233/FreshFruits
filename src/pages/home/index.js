@@ -1,4 +1,5 @@
 import Container from "../../components/container";
+import Footer from "../../components/footer";
 import FruitsCards from "../../components/fruitsCards";
 import Logo from "../../components/logo";
 
@@ -12,7 +13,7 @@ export default function Home(){
     <Container>
     <FruitsCards></FruitsCards>
     </Container>
-    
+    <Footer></Footer>
     </>
 
 }

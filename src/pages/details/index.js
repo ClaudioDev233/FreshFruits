@@ -1,14 +1,18 @@
 import FruitDetails from "../../components/fruitsDetails";
 import Container from "../../components/container";
-
+import Menu from "../../components/menu";
+import Footer from "../../components/footer";
+import BackToHome from "../../components/backToHome";
 
 export default function Details(){
 
     return <>
-    <div>Detalhes</div>
+    <Menu></Menu>
     <Container>
+        <BackToHome></BackToHome>
     <FruitDetails></FruitDetails>
     </Container>
+    <Footer></Footer>
     </>
 }
 

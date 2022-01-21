@@ -7,6 +7,7 @@ export const FruitCard = styled.div`
     flex-direction: column;
     width: 180px;
     padding: 10px;
+    gap: 10px;
     background-color: #F8FaFf;
     border-radius: 10px;
     box-shadow: 2px 7px 22px -2px rgba(14,92,92,0.67);
@@ -42,12 +43,11 @@ export const FruitCard = styled.div`
 
 export const ButtonInfo = styled.button`
 display: flex;
-align-items: center;
 background-color: #fe9d34;
 font-size: 15px;
 color: #F7FBFD;
 border: none;
-border-radius: 50%;
+border-radius: 50px;
 
 &:hover{
     background-color: #FB8500;
@@ -56,7 +56,9 @@ border-radius: 50%;
 
 `
 
-export const AddCartButton = styled.button`
+export const ButtonBox = styled.div`
+display:flex;
+gap: 30px;
 
 `
 
@@ -71,8 +73,9 @@ height: 100%;
 `
 
 export const Fruits = styled.p`
-display:block;
-font-size: 50px;
+display:flex;
+font-weight: bold;
+font-size: 30px;
 color: #60a196;
 `;
 

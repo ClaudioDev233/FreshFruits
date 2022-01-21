@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 import {NavMenu} from './styles'
-import { FaLemon } from 'react-icons/fa';
+import { FaLemon, FaShoppingBag } from 'react-icons/fa';
 
 export default function Menu(){
 
     return <>
         <NavMenu>
-           <span><FaLemon color="green"></FaLemon>FRUITFIND</span>
-           <Link to={"/"}><p>Home</p></Link>
-           <Link to={"cart"}><p>Cart</p></Link>
+              <span><FaLemon color="green"></FaLemon><p>FRESH FRUITS</p></span>
+            <ul>
+                <li><Link to={"/"}>Home</Link></li>
+                <li><Link to={"cart"}><FaShoppingBag color="#F65D13"/></Link></li>
+            </ul> 
         </NavMenu>
     </>
 }
