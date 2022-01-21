@@ -6,6 +6,6 @@ flex-wrap: wrap;
 gap: 20px;
 justify-content: center;
 padding: 30px;
-background-color: aliceblue;
-height: 100vh;
+background-color: #A8EECF;
+height: 100%;
 `

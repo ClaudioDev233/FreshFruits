@@ -10,7 +10,7 @@ import { trackPromise , usePromiseTracker } from 'react-promise-tracker';
 
 import Loading from '../loading';
 
-import { FruitCard, ButtonInfo } from "./styles"
+import { FruitCard, ButtonInfo, FruitBasket, Fruits, FruitPage } from "./styles"
 
 
 export default function FruitsCards() {
@@ -40,8 +40,10 @@ useEffect(() => {
 
   /* condição pra loading usando react-promise-tracker */
   return   <>
-   {promiseInProgress === true ? <Loading></Loading> : <></>} 
-
+  <FruitPage>
+    <Fruits>Featured Products</Fruits>
+      {promiseInProgress === true ? <Loading></Loading> : <></>} 
+    <FruitBasket>
     {Children.toArray(fruits.map( fruit => {
       return <>
       <FruitCard>
@@ -59,6 +61,8 @@ useEffect(() => {
       </FruitCard>
       </>
     }))}
+    </FruitBasket>
+    </FruitPage>
   </>
 }
 

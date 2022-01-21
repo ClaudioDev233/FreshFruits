@@ -7,17 +7,18 @@ export const FruitCard = styled.div`
     flex-direction: column;
     width: 180px;
     padding: 10px;
-    background-color: #F7FBFD;
+    background-color: #F8FaFf;
     border-radius: 10px;
     box-shadow: 2px 7px 22px -2px rgba(14,92,92,0.67);
 
     h2{
         font-size: 24px;
         font-weight: bold;
-        color: #023047;
+        color: #102a68;
     }
     h3{
         color: #8ECAE6;
+        font-size: 15px;
         font-weight: bold;
     }
 
@@ -42,7 +43,7 @@ export const FruitCard = styled.div`
 export const ButtonInfo = styled.button`
 display: flex;
 align-items: center;
-background-color: #FFB703;
+background-color: #fe9d34;
 font-size: 15px;
 color: #F7FBFD;
 border: none;
@@ -56,5 +57,29 @@ border-radius: 50%;
 `
 
 export const AddCartButton = styled.button`
+
+`
+
+export const FruitBasket = styled.div`
+display:flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+padding: 30px;
+background-color: #A8EECF;
+height: 100%;
+`
+
+export const Fruits = styled.p`
+display:block;
+font-size: 50px;
+color: #60a196;
+`;
+
+export const FruitPage= styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
 `
