@@ -15,7 +15,7 @@ import { FruitCard, ButtonInfo, FruitBasket, Fruits, FruitPage, ButtonBox } from
 
 export default function FruitsCards() {
 
-  const { promiseInProgress } = usePromiseTracker()
+const { promiseInProgress } = usePromiseTracker()
 
 const [fruits, setFruit] = useState([])
 

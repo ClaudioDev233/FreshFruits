@@ -5,3 +5,7 @@
     
 }
 
+.Divona{
+ display:flex;
+ flex-direction: column;
+}

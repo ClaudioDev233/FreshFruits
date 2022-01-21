@@ -18,8 +18,10 @@ export function CartProvider({children}){
 
     const [cart, setCart] = useState([])
     
-   
+    
     /* const cartValue = console.log(cart) */
+
+
 
     // adiciona uma nova fruta ao carrinho
    function handleAddNewFruit(fruit){
@@ -32,13 +34,18 @@ export function CartProvider({children}){
        const check = checkIfFruitIsOnCart(newFruit.name)
       if(check === undefined){
           setCart([...cart, newFruit])
-      } else {
-          alert('já tem no carrinho')  
+        } else {
+          console.log(newFruit.amount)
+          alert('Already added to cart')  
           
       }
    }
 
+   
+
 //muda a quantidade dessa fruta no carrinho
+
+
    
 
    //checa se a fruta está no carrinho para não adiciona-la novamente refatorar 
@@ -75,6 +82,7 @@ export function CartProvider({children}){
     value={{
         context : cart.length,
         cart: cart,
+        settCart: setCart,
         addNewFruit: handleAddNewFruit,
         removeFruit: handleRemoveFruit,
         clearCart : handleClearCart,
