@@ -1,6 +1,6 @@
 # Fresh Fruits!
 
-Fresh Fruits é um pequeno projeto em React que simula um Marketplace de frutas, consumindo a API [Fruityvice](https://github.com/fkhadra/react-toastify#readme).
+[Fresh Fruits](https://freshfruitss.netlify.app/) é um pequeno projeto em React que simula um Marketplace de frutas, consumindo a API [Fruityvice](https://github.com/fkhadra/react-toastify#readme).
 
 
 ## Preview :
