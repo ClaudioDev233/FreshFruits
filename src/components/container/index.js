@@ -1,10 +1,7 @@
-import {ContainerDefault} from "./styles"
+import { ContainerDefault } from "./styles";
 
-function Container({children}){
-
-    return <ContainerDefault>
-                 {children}
-        </ContainerDefault>
+function Container({ children }) {
+  return <ContainerDefault>{children}</ContainerDefault>;
 }
 
-export default Container
+export default Container;

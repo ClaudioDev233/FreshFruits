@@ -1,11 +1,11 @@
-import {FooterDefault} from './styles'
+import { FooterDefault } from "./styles";
 
-
-export default function Footer(){
-
-    return <>
-        <FooterDefault>
-             <p>Made by: @ClaudioDev233 - 2022</p>
-        </FooterDefault>
+export default function Footer() {
+  return (
+    <>
+      <FooterDefault>
+        <p>Made by: @Claudio Jr.</p>
+      </FooterDefault>
     </>
+  );
 }

@@ -1,12 +1,10 @@
 import { useState, useEffect, useContext, Children } from "react";
-
-import { imgFruit } from "../../constants";
+import { Link } from "react-router-dom";
+import { trackPromise, usePromiseTracker } from "react-promise-tracker";
 
 import { CartContext } from "../../contexts/cartContext";
 
-import { Link } from "react-router-dom";
-
-import { trackPromise, usePromiseTracker } from "react-promise-tracker";
+import { imgFruit } from "../../constants";
 
 import Loading from "../loading";
 
@@ -33,13 +31,13 @@ export default function FruitsCards() {
     async function fetchFruit() {
       const data = await fetch(`${proxy}${url}/all`);
       const response = await data.json();
-      console.log(data);
       setFruit(response);
     }
+    //Encapsulamento da response para o loading ocorrer ou não
     trackPromise(fetchFruit());
   }, []);
 
-  /* condição pra loading usando react-promise-tracker */
+  //condição pra loading usando react-promise-tracker
   return (
     <>
       <FruitPage>
@@ -73,7 +71,7 @@ export default function FruitsCards() {
                           addNewFruit(fruit);
                         }}
                       >
-                        Add to cart
+                        Add To Cart
                       </ButtonInfo>
                       <Link to={`./details/${fruit.id}`}>
                         <ButtonInfo title="Nutritional Info">?</ButtonInfo>

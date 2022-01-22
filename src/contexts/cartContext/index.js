@@ -1,22 +1,10 @@
 import { createContext, useState } from "react";
-
-/* 
-  COMO CRIAR UM CONTEXTO 
-  1 - Importar createContext do react
-  2 - atribui createContext para uma variável
-    Ex: export const CartContext = createContext([]);
-  3 - Criar o Provider
-  4 - Importar o Provider no App.js
-  5 - Consumir o contexto usando o useContex 
-  ...
-*/
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const CartContext = createContext([]);
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-
-  /* const cartValue = console.log(cart) */
 
   // adiciona uma nova fruta ao carrinho
   function handleAddNewFruit(fruit) {
@@ -28,26 +16,29 @@ export function CartProvider({ children }) {
     const check = checkIfFruitIsOnCart(newFruit.name);
     if (check === undefined) {
       setCart([...cart, newFruit]);
+      toast.success(`🛒 ${newFruit.name} added to cart!`, {
+        autoClose: 2000,
+      });
     } else {
-      console.log(newFruit.amount);
-      alert("Already added to cart");
+      toast.error(`🛒 ${newFruit.name} already added to cart!`, {
+        autoClose: 2000,
+      });
     }
   }
 
-  //muda a quantidade dessa fruta no carrinho
-
-  //checa se a fruta está no carrinho para não adiciona-la novamente refatorar
+  //checa se a fruta está no carrinho para não adiciona-la novamente
   function checkIfFruitIsOnCart(fruit) {
     const fruitFind = cart.find((item) => item.name === fruit);
-    console.log(fruitFind);
     return fruitFind;
   }
 
-  //remove a fruta do carrinho
+  //remove uma fruta do carrinho
   function handleRemoveFruit(id) {
     const fruitFiltered = cart.filter((item) => {
       if (item.id === id) {
-        alert("Item Removido");
+        toast.success(`🧹 ${item.name} Removed`, {
+          autoClose: 2000,
+        });
         return false; //remove fruta do carrinho
       } else {
         return true; //fruta continua no carrinho
@@ -56,25 +47,25 @@ export function CartProvider({ children }) {
     setCart(fruitFiltered);
   }
 
+  // limpa todo o carrinho
   function handleClearCart() {
-    window.confirm("Deseja limpar o carrinho");
-    if (window.confirm) {
-      setCart([]);
-    }
+    toast.success("✨ Cart Cleared", {
+      autoClose: 2000,
+    });
+    setCart([]);
   }
 
   return (
     <CartContext.Provider
       value={{
-        context: cart.length,
+        cartAmount: cart.length,
         cart: cart,
-        settCart: setCart,
+        setToCart: setCart,
         addNewFruit: handleAddNewFruit,
         removeFruit: handleRemoveFruit,
         clearCart: handleClearCart,
 
         checkFruit: checkIfFruitIsOnCart,
-        /* cartValue: cartValue, */
       }}
     >
       {children}

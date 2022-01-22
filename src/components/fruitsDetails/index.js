@@ -6,7 +6,7 @@ import { FruitContainer, ImageContainer, DetailsContainer, H1 } from "./styles";
 export default function FruitDetails() {
   const [fruit, setFruit] = useState([]);
   const [nutri, setNutri] = useState([]);
-  const params = useParams();
+  const params = useParams(); // parametros para o ID dinamico de cada fruta
 
   useEffect(() => {
     const proxy = "https://secret-reef-88782.herokuapp.com/"; // proxy para resolver problema de CORS
@@ -18,7 +18,6 @@ export default function FruitDetails() {
       ).json();
       setNutri(response.nutritions);
       setFruit(response);
-      console.log(response.nutritions);
     }
     fetchFruit();
   }, [params.id]);
@@ -44,19 +43,19 @@ export default function FruitDetails() {
         <H1>{fruit.name}</H1>
         <DetailsContainer>
           <p>
-            Carbo: <span>{nutri.carbohydrates}</span>
+            Calories: <span>{nutri.calories}</span>
           </p>
           <p>
-            Proteina: <span>{nutri.protein}</span>
+            Carbohydrates: <span>{nutri.carbohydrates}</span>
           </p>
           <p>
-            Gordura: <span>{nutri.fat}</span>
+            Fat: <span>{nutri.fat}</span>
           </p>
           <p>
-            Calorias: <span>{nutri.calories}</span>
+            Protein: <span>{nutri.protein}</span>
           </p>
           <p>
-            Açucar: <span>{nutri.sugar}</span>
+            Sugar: <span>{nutri.sugar}</span>
           </p>
         </DetailsContainer>
       </FruitContainer>

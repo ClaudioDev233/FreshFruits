@@ -1,5 +1,4 @@
 import Menu from "../../components/menu";
-
 import Container from "../../components/container";
 import Footer from "../../components/footer";
 import CartTable from "../../components/cartTable";

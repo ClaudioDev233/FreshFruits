@@ -1,20 +1,33 @@
 import { Children, useContext } from "react";
 import { CartContext } from "../../contexts/cartContext";
 import { imgFruit } from "../../constants/index";
+import {
+  ButtonsAddRemove,
+  CartDescription,
+  CartDiv,
+  CartTableDiv,
+  CartImage,
+  Table,
+  TBody,
+  Th,
+  QuantitySpan,
+} from "./styles";
 
 export default function CartTable() {
-  const { cart, context, clearCart, removeFruit, settCart } =
+  const { cart, cartAmount, clearCart, removeFruit, setToCart } =
     useContext(CartContext);
 
+  //Altera a quantitade de itens no carrinho
   function handleAddAmount(fruit) {
     cart.forEach((item) => {
       if (item.name === fruit.name) {
         fruit.amount += 1;
       }
     });
-    settCart([...cart]);
+    setToCart([...cart]);
   }
 
+  //Altera a quantitade de itens no carrinho
   function handleRemoveAmount(fruit) {
     cart.forEach((item) => {
       if (item.name === fruit.name) {
@@ -23,33 +36,34 @@ export default function CartTable() {
         }
       }
     });
-    settCart([...cart]);
+    setToCart([...cart]);
   }
 
   return (
     <>
-      <div className="DivDeTudo">
-        <div className="DivLimpaCarro">
-          <p>Quantidade de Itens no carrinho: {context}</p>
-          <button
+      <CartDiv>
+        <CartDescription>
+          <h1>Cart</h1>
+          <h2>Items in cart: {cartAmount}</h2>
+          <ButtonsAddRemove
             onClick={() => {
               clearCart();
             }}
           >
-            Limpar Carrinho
-          </button>
-        </div>
-        <div className="DivTable">
-          <table className="table">
+            Clear Cart
+          </ButtonsAddRemove>
+        </CartDescription>
+        <CartTableDiv>
+          <Table>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Product</th>
-                <th>Qnt</th>
-                <th></th>
+                <Th>#</Th>
+                <Th>Product</Th>
+                <Th>Qnt</Th>
+                <Th></Th>
               </tr>
             </thead>
-            <tbody>
+            <TBody>
               {Children.toArray(
                 cart.map((fruit) => {
                   return (
@@ -59,55 +73,54 @@ export default function CartTable() {
                           (fruitImg) => fruit.name === fruitImg.nome
                         ).length ? (
                           <td>
-                            <img
-                              className="cartPhoto"
+                            <CartImage
                               src={
                                 imgFruit.filter(
                                   (fruitImg) => fruit.name === fruitImg.nome
                                 )[0].imagem
                               }
                               alt={fruit.name}
-                            ></img>
+                            ></CartImage>
                           </td>
                         ) : (
                           <></>
                         )}
                         <td>{fruit.name}</td>
                         <td>
-                          <button
+                          <ButtonsAddRemove
                             onClick={() => {
                               handleAddAmount(fruit);
                             }}
                           >
                             +
-                          </button>
-                          <span>{fruit.amount}</span>
-                          <button
+                          </ButtonsAddRemove>
+                          <QuantitySpan>{fruit.amount}</QuantitySpan>
+                          <ButtonsAddRemove
                             onClick={() => {
                               handleRemoveAmount(fruit);
                             }}
                           >
                             -
-                          </button>
+                          </ButtonsAddRemove>
                         </td>
                         <td>
-                          <button
+                          <ButtonsAddRemove
                             onClick={() => {
                               removeFruit(fruit.id);
                             }}
                           >
-                            Remove
-                          </button>
+                            X
+                          </ButtonsAddRemove>
                         </td>
                       </tr>
                     </>
                   );
                 })
               )}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </TBody>
+          </Table>
+        </CartTableDiv>
+      </CartDiv>
     </>
   );
 }

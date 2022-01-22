@@ -5,33 +5,3 @@
 .cartPhoto {
   height: 100px;
 }
-
-.DivDeTudo {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.DivLimpaCarro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.DivTable {
-  display: block;
-  width: 100%;
-}
-
-.table {
-  width: 80%;
-}
-
-.table,
-td {
-  height: 100px;
-  border: 1px solid black;
-  text-align: center;
-  margin: 0 auto;
-  vertical-align: middle;
-}

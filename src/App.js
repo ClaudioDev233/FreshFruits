@@ -5,14 +5,10 @@ import Home from "./pages/home";
 import "./App.css";
 import { CartProvider } from "./contexts/cartContext";
 import Details from "./pages/details";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  /* Coisas para adicionar (não estão em ordem): 
-   - Busca dinamica usando params
-   - context do carrinho
-   -icone do carrinho dinamico (usando context)
-   - pagina de detalhes da fruta  */
-
   return (
     <>
       <CartProvider>
@@ -22,6 +18,7 @@ function App() {
           <Route path="/details/:id" element={<Details />}></Route>
         </Routes>
       </CartProvider>
+      <ToastContainer />
     </>
   );
 }
