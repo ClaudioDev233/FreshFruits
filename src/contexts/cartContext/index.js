@@ -1,4 +1,4 @@
-import { createContext, useState} from "react";
+import { createContext, useState } from "react";
 
 /* 
   COMO CRIAR UM CONTEXTO 
@@ -13,86 +13,71 @@ import { createContext, useState} from "react";
 
 export const CartContext = createContext([]);
 
-export function CartProvider({children}){
-   
+export function CartProvider({ children }) {
+  const [cart, setCart] = useState([]);
 
-    const [cart, setCart] = useState([])
-    
-    
-    /* const cartValue = console.log(cart) */
+  /* const cartValue = console.log(cart) */
 
+  // adiciona uma nova fruta ao carrinho
+  function handleAddNewFruit(fruit) {
+    const newFruit = {
+      ...fruit,
+      amount: 1,
+    };
 
-
-    // adiciona uma nova fruta ao carrinho
-   function handleAddNewFruit(fruit){
-        const newFruit = {
-            ...fruit,
-            amount : 1
-        }
-
-
-       const check = checkIfFruitIsOnCart(newFruit.name)
-      if(check === undefined){
-          setCart([...cart, newFruit])
-        } else {
-          console.log(newFruit.amount)
-          alert('Already added to cart')  
-          
-      }
-   }
-
-   
-
-//muda a quantidade dessa fruta no carrinho
-
-
-   
-
-   //checa se a fruta está no carrinho para não adiciona-la novamente refatorar 
-  function checkIfFruitIsOnCart(fruit){
-       const fruitFind = cart.find(item => item.name === fruit)
-       console.log(fruitFind)
-       return fruitFind     
+    const check = checkIfFruitIsOnCart(newFruit.name);
+    if (check === undefined) {
+      setCart([...cart, newFruit]);
+    } else {
+      console.log(newFruit.amount);
+      alert("Already added to cart");
+    }
   }
 
-    //remove a fruta do carrinho
-   function handleRemoveFruit(id){
-       const fruitFiltered = cart.filter( item =>{
-           if(item.id === id){
-               alert("Item Removido")
-               return false  //remove fruta do carrinho
-           } else {
-            return true  //fruta continua no carrinho
-           }
-       })
-       setCart(fruitFiltered)
-   }
+  //muda a quantidade dessa fruta no carrinho
 
-   function handleClearCart(){
-    window.confirm("Deseja limpar o carrinho")
-       if(window.confirm){
-           setCart([])
-       }
-   }
+  //checa se a fruta está no carrinho para não adiciona-la novamente refatorar
+  function checkIfFruitIsOnCart(fruit) {
+    const fruitFind = cart.find((item) => item.name === fruit);
+    console.log(fruitFind);
+    return fruitFind;
+  }
 
+  //remove a fruta do carrinho
+  function handleRemoveFruit(id) {
+    const fruitFiltered = cart.filter((item) => {
+      if (item.id === id) {
+        alert("Item Removido");
+        return false; //remove fruta do carrinho
+      } else {
+        return true; //fruta continua no carrinho
+      }
+    });
+    setCart(fruitFiltered);
+  }
 
+  function handleClearCart() {
+    window.confirm("Deseja limpar o carrinho");
+    if (window.confirm) {
+      setCart([]);
+    }
+  }
 
-
-    return <CartContext.Provider
-    value={{
-        context : cart.length,
+  return (
+    <CartContext.Provider
+      value={{
+        context: cart.length,
         cart: cart,
         settCart: setCart,
         addNewFruit: handleAddNewFruit,
         removeFruit: handleRemoveFruit,
-        clearCart : handleClearCart,
+        clearCart: handleClearCart,
 
-       
-
-        checkFruit: checkIfFruitIsOnCart
+        checkFruit: checkIfFruitIsOnCart,
         /* cartValue: cartValue, */
-    }}
+      }}
     >
-        {children}
+      {children}
     </CartContext.Provider>
+  );
 }
