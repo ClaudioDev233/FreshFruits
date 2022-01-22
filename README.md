@@ -14,7 +14,7 @@ Fresh Fruits é um pequeno projeto em React que simula um Marketplace de frutas,
 [React Promise Tracker](https://github.com/Lemoncode/react-promise-tracker).
 
 
-## Possíveis Atualizações :
+## Futuras atualizações :
  
 - Melhorar Responsividade ;
 - Adicionar página de Checkout.
