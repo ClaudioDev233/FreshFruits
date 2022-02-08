@@ -14,6 +14,7 @@ export function CartProvider({ children }) {
     };
 
     const check = checkIfFruitIsOnCart(newFruit.name);
+
     if (check === undefined) {
       setCart([...cart, newFruit]);
       toast.success(`🛒 ${newFruit.name} added to cart!`, {

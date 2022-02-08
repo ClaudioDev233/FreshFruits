@@ -137,4 +137,19 @@ export const imgFruit = [
     imagem:
       "https://www.gardeningknowhow.com/wp-content/uploads/2021/05/whole-and-slices-watermelon.jpg",
   },
+  {
+    nome: "GreenApple",
+    imagem:
+      "https://cdn10.bigcommerce.com/s-paatz/products/2160/images/5039/greenapple-vape__84765.1536036635.1280.1280.jpg?c=2",
+  },
+  {
+    nome: "Plum",
+    imagem:
+      "https://www.bigbasket.com/media/uploads/p/l/40218329_2-fresho-plum-indian.jpg",
+  },
+  {
+    nome: "Umbu",
+    imagem:
+      "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:7.4556342:1631536974/polpa.jpg?f=default&$p$f=4efeef7",
+  },
 ];
