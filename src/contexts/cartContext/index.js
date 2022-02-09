@@ -45,6 +45,7 @@ export function CartProvider({ children }) {
         return true; //fruta continua no carrinho
       }
     });
+
     setCart(fruitFiltered);
   }
 
